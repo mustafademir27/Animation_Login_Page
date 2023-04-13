@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> <!--Sosyal medya ikonları için bu link lazım.-->
+</head>
+<body>
+    <div class="container">
+
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo"> <!--alt kullarak resimin yanına yazı yazabiliriz.-->
+        </div>
+
+        <form action="#"> <!-- input label gibi şeyleri form içinde yazarız.-->
+            <div class="title">Login</div>
+
+            <div class="input-box">
+                <input type="email" placeholder="Email Giriniz..." required> <!--placeholder ile box içinw gölgeli şekilde yazı yazabiliriz.-->
+                <div class="underline"></div>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Şifre Giriniz." required> <!--required yapınca bunu yazmadığımız sürece hata verir.-->
+                <div class="underline"></div>
+            </div>
+
+            <div class="input-box button">
+                <input type="submit" value="Giriş Yap" > <!--Gönder yapmak istiyorsak type =submit/ üzerindeki yazıyı da value ile yazarız.-->
+            </div>
+
+        </form>
+
+        <div class="text">
+            veya Sosyal Medya ile bağlanın...
+        </div>
+
+
+        <!--Sosyal Medya Butonlarını alalım-->
+
+        <div class="github">
+            <a href="#"> <i class="fab fa-github"></i> Github ile Giriş</a>
+        </div>
+
+        <div class="twitter">
+            <a href="#"> <i class="fab fa-twitter"></i> Twitter ile Giriş</a>
+        </div>
+        
+        <div class="facebook">
+            <a href="#"> <i class="fab fa-facebook"></i> Facebook ile Giriş</a>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+* {
+    /* yıldız kullanarak tüm her şeyi içine alırsın*/
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    /*Görünen ekranın tamamını al demek*/
+    place-items: center;
+    /*ekrandaki itemleri ortalamak için*/
+    background: linear-gradient(to right, #dfabc5 0%, #1da1f2 100%);
+    /*background color'u soldan sağa doğru gradient şekilde reklendirdim.*/
+}
+
+
+.container {
+    background: #fff;
+    max-width: 350px;
+    width: 100%;
+    padding: 50px 30px;
+    border-radius: 10px;
+    position: relative;
+    /*bunu kullanarak container içinde herhangi bir yerde position:absolute kullansak bile contaienr dışına çıkamaz.*/
+}
+
+
+/*IMAGE üzerindeki işlemler*/
+.container .logo img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    /*soldaki 3 satırı kullanarak resimi konumlandırdık.*/
+    left: 70%;
+    top: 20px;
+    border-radius: 50%;
+    /*soldaki 2 satırı kullanarak resimin etrasını daire yaptık ve aynı zamanda etrafına solid çizgi çektik*/
+    border: 5px solid purple;
+}
+
+/*Logo yazısı üzerindeki işlemler*/
+.container form .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: -20px 0 50px 0;
+    /*sırası ile üst sağ alt sol*/
+    position: relative;
+}
+
+/*Logo altındaki çizgiyi yapalım BEFORE KULLANDIK*/
+.container form .title::before {
+    content: '';
+    position: absolute;
+    /*buraya POSITION:ABSOLUTE yazdığım için bir üst kapsayıcıya position:relative yazmam lazım*/
+    width: 35px;
+    height: 5px;
+    bottom: 2px;
+    left: 0;
+    background: blue;
+    border-radius: 5px;
+}
+
+
+/*input-box üzerindeki işlemler*/
+.container form .input-box {
+    width: 100%;
+    height: 45px;
+    margin-top: 25px;
+    position: relative;
+}
+
+/*input-box içindeki inputlara işlem yapalım*/
+.container form .input-box input {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    border: none;
+    outline: none;
+
+}
+
+/*Underline'ı düzenleyelim*/
+/*Before olarak yazdık*/
+.container form .underline::before {
+    content: '';
+    position: absolute;
+    /* input-box class'ının dışına çıkmaması için kullanıyoruz.*/
+    background-color: rgba(146, 145, 145, 0.4);
+    ;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+}
+
+/*Underline'ı after olarak yazıp tıklandıktan sonra altındaki bar dolacak.*/
+.container form .underline::after {
+    content: '';
+    position: absolute;
+    /*absolute kullandığımızda top left bottom right özelliklerini verebiliyoruz*/
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: red;
+    transform: scaleX(0);
+    /*animasyon yaparken transform çok kullanılır. Burada scaleX ile barı sıfırdan başlatıyoruz.*/
+    transform-origin: left;
+    /*Bar sol taraftan artmaya başlayacak demek.*/
+    transition: all 0.4s ease;
+}
+
+
+
+.container form .input-box input:focus~.underline::after,
+/*Eğer .input-box'ın class'ına odaklanılırsa afterı bununla bağla diyor.*/
+.container form .input-box input:valid~.underline::after {
+    /*Eğer input geçerliyse after ile bağla demek.*/
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/*Giriş butonu ayarlarını yapalım*/
+.container form .button {
+    margin: 40px 0px 20px 0px;
+}
+
+/*Giriş butonu ayarlarını yapalım*/
+.container form .input-box input[type="submit"] {
+    background-color: rgb(202, 0, 0);
+    color: white;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/*Giriş butonuna HOVER ayarlarını yapalım*/
+.container form .input-box input[type="submit"]:hover {
+    background-color: rgba(0,0,0,0.15);
+    color: red;
+    letter-spacing: 1px; /*harfler arasındaki mesafeyi arttırmak için*/
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+/*Aradaki Text'idüzenleyelim*/
+.container .text{
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 20px;
+}
+
+/*Sosyal Meda simgelerini düzenleyelim*/
+.container .twitter a,
+.container .facebook a,
+.container .github a{
+    display: block;
+    width: 100%;
+    height: 45px;
+    font-size: 15px;
+    text-decoration: none;
+    padding-left: 20px;
+    color: white;
+    line-height: 45px; 
+}
+
+/*github*/
+.container .github a{
+    background-color: black;
+    margin: 20px 0 15px 0;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+/*Hover Github*/
+.container .github a:hover{
+    background-color: rgb(55, 48, 48,0.2);
+    color: black;
+    letter-spacing: 1px;
+}
+
+
+/*Twitter*/
+.container .twitter a{
+    background-color: #20e6f0;
+    margin: 20px 0 15px 0;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+/*Twitter Hover*/
+.container .twitter a:hover{
+    background-color: rgb(55, 48, 48,0.2);
+    color: black;
+    letter-spacing: 1px;
+}
+
+/*Facebook*/
+.container .facebook a{
+    background-color: #1da1f2;
+    border-radius: 10px;
+    margin: 20px 0 5px 0;
+    transition: all 0.5s ease;
+}
+
+/*Facebok Hover*/
+.container .facebook a:hover{
+    background-color: rgb(55, 48, 48,0.2);
+    color: black;
+    letter-spacing: 1px;
+}
+
+
+/*ikonları düzenleyelim*/
+.container .github i,
+.container .twitter i,
+.container .facebook i{
+    font-size: 20px;
+    padding-right: 32px;
+}
+
+
+/*BURDAN SONRASINI KENDİM YAPIYORUM.*/
+
+/*Giriş yap butonunu düzenleyelim
+.container form .input-box .btnSubmit{
+    background-color: rgb(235, 5, 5);
+    color: white;
+    border-radius: 5px;
+}
+
+
+/*aradaki yazıyı düzenleyelim*
+.container .text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*Sosyal medya butonlarını düzenleyelim
+
+
+.container .twitter{
+    width: 100%;
+
+}
+
+.container .twitter a{
+    color: white;
+    background-color: blue;
+    border: 2px solid blue;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+*/
